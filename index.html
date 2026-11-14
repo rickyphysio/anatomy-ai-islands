@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="forest">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="generator" content="IsleForge" />
+  <title>Ricky's anatomy learning island — Enjoy learning anatomy with fun</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%233f7d3a'/%3E%3Cpath d='M16 38 L32 16 L48 38 Z' fill='%23e3a33b'/%3E%3Ccircle cx='32' cy='42' r='8' fill='%23f7faf3'/%3E%3C/svg%3E" />
+  <meta name="description" content="Enjoy learning anatomy with fun — Interactive 3D Floating Archipelago covering 157 muscles across 8 regions with RPG Monster Quizzes and Living World." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" href="./guestbook.css" />
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "./js/vendor/three.module.js",
+      "three/addons/": "./js/vendor/"
+    }
+  }
+  </script>
+</head>
+<body>
+  <div id="viewport-wrap">
+    <!-- 3D WebGL Canvas Container -->
+    <div id="canvas-container" aria-label="3D Floating Anatomy Archipelago"></div>
+    <!-- 2D Meteor Shower Overlay Canvas -->
+    <canvas id="meteor-canvas" aria-hidden="true"></canvas>
+    <!-- Projected HTML Island Labels -->
+    <div id="island-labels" aria-label="Archipelago Island Labels"></div>
+
+    <!-- WebGL Fallback Banner (if WebGL fails or is disabled) -->
+    <div id="webgl-fallback-banner" hidden style="position:fixed;top:80px;left:16px;right:16px;z-index:60;padding:12px;background:var(--surface);border:2px solid var(--primary);border-radius:12px;">
+      <strong>Text & Compendium Mode Active:</strong> 3D WebGL is unavailable on this device, but you can read all 157 muscles, talk to NPCs, and complete all RPG quizzes from the Location List!
+    </div>
+
+    <!-- Top Header & Navigation Toolbar -->
+    <header id="top-hud">
+      <div class="hud-card brand-card">
+        <div class="wilson-avatar-slot" aria-hidden="true"></div>
+        <div>
+          <h1>Ricky's anatomy learning island</h1>
+          <p>Enjoy learning anatomy with fun · By Ricky Tong · <span id="hud-explore-progress">Explored: 0/8</span></p>
+        </div>
+      </div>
+
+      <!-- Theme Switcher (Auto + 3 Host Themes: 森林 / 苔原 / 深林) -->
+      <div class="hud-toolbar" role="group" aria-label="Base Theme Switcher">
+        <button type="button" class="theme-pill is-active" data-theme-btn="auto" aria-label="Auto Theme by Sunrise and Sunset">
+          🌅 自動 Auto
+        </button>
+        <button type="button" class="theme-pill" data-theme-btn="forest" aria-label="Forest Theme">
+          <span class="swatch-dot" style="background:#eef3e6;"></span> 森林 Forest
+        </button>
+        <button type="button" class="theme-pill" data-theme-btn="tundra" aria-label="Tundra Theme">
+          <span class="swatch-dot" style="background:#dfe8d3;"></span> 苔原 Tundra
+        </button>
+        <button type="button" class="theme-pill" data-theme-btn="deep" aria-label="Deep Woods Night Theme">
+          <span class="swatch-dot" style="background:#1b2a20;"></span> 深林 Deep
+        </button>
+      </div>
+
+      <!-- Primary Action Buttons -->
+      <div class="hud-toolbar" role="toolbar" aria-label="Main Archipelago Controls">
+        <div class="search-box-inline">
+          <span aria-hidden="true">🔍</span>
+          <input id="global-search-input" type="search" placeholder="Search 157 muscles..." aria-label="Search islands and muscles" />
+        </div>
+        <button type="button" id="btn-open-list" class="hud-btn" aria-label="Open Islands and Muscle Compendium List">
+          📋 Islands List (地點清單)
+        </button>
+        <button type="button" id="btn-panorama" class="hud-btn" aria-label="Return to Panorama Overview">
+          🌐 Panorama (回到全景)
+        </button>
+        <button type="button" id="btn-open-adventurer" class="hud-btn" aria-label="Adventurer Profile and Level">
+          🧑‍🎓 Adventurer
+        </button>
+        <button type="button" id="btn-open-passport" class="hud-btn" aria-label="Open Stamp Passport">
+          🏅 Stamps: 0/8
+        </button>
+        <button type="button" id="btn-open-backpack" class="hud-btn" aria-label="Open Backpack and Item Trades">
+          🎒 🐚3
+        </button>
+        <button type="button" id="btn-daily-chest" class="hud-btn" aria-label="Open Daily Treasure Chest">
+          🗝️ Keys: 3/3
+        </button>
+        <button type="button" id="btn-open-savecode" class="hud-btn" aria-label="Open Save Code and Backup">
+          💾 Save Code
+        </button>
+        <button type="button" id="btn-open-help" class="hud-btn" aria-label="Help and Guide">
+          ?
+        </button>
+      </div>
+    </header>
+
+    <!-- Bottom Dock: Living World Time-of-Day, Guided Tour, Walk Mode, Meteor Wish, Palettes & Accessibility -->
+    <footer id="bottom-dock" aria-label="World Atmosphere and Exploration Controls">
+      <div id="live-clock-display" class="clock-pill" aria-live="polite">☀️ Day (白天) 09:30</div>
+      <button type="button" class="hud-btn is-active" data-time-btn="day" aria-label="Daylight Mode">☀️ Day</button>
+      <button type="button" class="hud-btn" data-time-btn="dusk" aria-label="Dusk Mode">🌇 Dusk</button>
+      <button type="button" class="hud-btn" data-time-btn="night" aria-label="Night Mode">🌙 Night</button>
+      <button type="button" class="hud-btn" data-time-btn="auto" aria-label="Auto Flowing Day Night Cycle">⏱ Auto</button>
+      <button type="button" class="hud-btn" data-time-btn="realtime" aria-label="Sync with Local Clock">🕒 Sync</button>
+
+      <button type="button" id="btn-guided-tour" class="hud-btn" aria-label="Start Guided Archipelago Tour">▶ Tour (導覽)</button>
+      <button type="button" id="btn-walk-mode" class="hud-btn" aria-label="First-Person Walk Mode">🚶 Walk (漫遊)</button>
+      <button type="button" id="btn-wish-meteor" class="hud-btn" aria-label="Make a Wish and Trigger Meteor Shower">🌠 Wish (許願)</button>
+      <button type="button" id="btn-open-palettes" class="hud-btn" aria-label="Open 24 Visitor Color Palettes">🎨 Palettes (配色)</button>
+      <button type="button" id="btn-replay-intro" class="hud-btn" aria-label="Replay Epic Cinema Intro">🎬 Intro</button>
+      <button type="button" id="btn-music" class="hud-btn" aria-label="Toggle Background Music">🎵 Music</button>
+      <button type="button" id="btn-reduced-motion" class="hud-btn" aria-label="Toggle Reduced Motion">✨ Motion: Full</button>
+      <button type="button" id="btn-quality" class="hud-btn" aria-label="Toggle Graphics Quality">💎 Quality: Ultra</button>
+    </footer>
+
+    <!-- Side Content Panel (Desktop Side Panel / Mobile Bottom Drawer) -->
+    <aside id="island-panel" role="dialog" aria-labelledby="island-panel-title" hidden>
+      <div class="panel-head">
+        <div>
+          <span id="island-panel-group" class="badge-tag">Region</span>
+          <h2 id="island-panel-title">Island Title</h2>
+        </div>
+        <button type="button" id="btn-close-panel" class="icon-close-btn" aria-label="Close Panel (Esc)">✕</button>
+      </div>
+      <div id="island-panel-body"></div>
+    </aside>
+
+    <!-- 3D Entity Speech Bubble (Residents, Gatekeepers, Animals, Sea-Turtle Shuttle) -->
+    <div id="speech-bubble" role="dialog" aria-label="Character Dialogue Bubble" hidden></div>
+
+    <!-- Guided Tour Bottom Card -->
+    <section id="tour-card" role="region" aria-label="Guided Tour Controls" hidden>
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;">
+        <span id="tour-step-badge" class="badge-tag">Stop 1 / 9</span>
+        <strong id="tour-island-title">Island Name</strong>
+      </div>
+      <p id="tour-island-desc" style="margin:6px 0;font-size:13px;"></p>
+      <div class="tour-progress-bar"><div id="tour-progress-fill"></div></div>
+      <div class="npc-actions-bar" style="justify-content:space-between;">
+        <button type="button" id="tour-prev" class="btn-secondary btn-sm">⏮ Prev (上一站)</button>
+        <button type="button" id="tour-pause" class="btn-secondary btn-sm">⏸ Pause (暫停)</button>
+        <button type="button" id="tour-next" class="btn-secondary btn-sm">⏭ Next (下一站)</button>
+        <button type="button" id="tour-exit" class="btn-primary btn-sm">✕ Exit (結束)</button>
+      </div>
+    </section>
+
+    <!-- First-Person Walk Mode HUD & Mobile D-Pad -->
+    <div id="walk-mode-hud" hidden>
+      <div class="walk-banner">
+        <span>🚶 First-Person Walk Mode: Use WASD / Arrow Keys to walk on islands & bridges, drag to look around.</span>
+        <button type="button" id="btn-exit-walk" class="btn-primary btn-sm">✕ Bird's-Eye (鳥瞰)</button>
+      </div>
+      <div class="walk-dpad" aria-label="Walk Directional Controls">
+        <span></span>
+        <button type="button" id="walk-btn-up" class="dpad-btn" aria-label="Walk Forward">▲</button>
+        <span></span>
+        <button type="button" id="walk-btn-left" class="dpad-btn" aria-label="Turn Left">◀</button>
+        <button type="button" id="walk-btn-down" class="dpad-btn" aria-label="Walk Backward">▼</button>
+        <button type="button" id="walk-btn-right" class="dpad-btn" aria-label="Turn Right">▶</button>
+      </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toast-container" aria-live="polite"></div>
+  </div>
+
+  <!-- 1. Create / Switch Adventurer Modal -->
+  <div id="adventurer-modal" class="modal-backdrop" role="dialog" aria-labelledby="adv-modal-title" hidden>
+    <div class="modal-card">
+      <div class="panel-head">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div class="wilson-avatar-slot"></div>
+          <div>
+            <span class="badge-tag">RPG Adventure Mode</span>
+            <h2 id="adv-modal-title">Create Your Anatomy Adventurer</h2>
+          </div>
+        </div>
+        <button type="button" class="icon-close-btn" data-close-modal="adventurer-modal" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body">
+        <p style="margin-top:0;font-size:14px;">
+          Hi! I'm <b>Wilson</b>, your anatomy mentor. Enter an Adventurer Codename (2–12 characters, no real name required) and choose a low-poly avatar to walk across the 8 floating islands, battle Concept Monsters, and earn your Certificate!
+        </p>
+        <form id="adventurer-form" novalidate>
+          <label class="form-field">
+            <span>Adventurer Codename (冒險者代號 2～12 字，不同代號存檔獨立)</span>
+            <input id="adventurer-code-input" type="text" maxlength="12" placeholder="e.g. PhysioAce" required />
+          </label>
+          <div class="avatar-style-row" role="radiogroup" aria-label="Choose Avatar Style">
+            <label class="avatar-style-option">
+              <input type="radio" name="adv-style" value="0" checked />
+              <div>🌿 Style 1<br><small>Forest Tunic</small></div>
+            </label>
+            <label class="avatar-style-option">
+              <input type="radio" name="adv-style" value="1" />
+              <div>📘 Style 2<br><small>Scholar Cape</small></div>
+            </label>
+            <label class="avatar-style-option">
+              <input type="radio" name="adv-style" value="2" />
+              <div>🔥 Style 3<br><small>Athletic Vest</small></div>
+            </label>
+          </div>
+          <p id="adventurer-form-error" class="status-msg bad" style="min-height:1.2em;margin:4px 0;"></p>
+          <div class="npc-actions-bar">
+            <button type="submit" class="btn-primary">🚀 Start Adventure (建立冒險者)</button>
+            <button type="button" id="btn-browse-only" class="btn-secondary">👀 Just Browse, Don't Play (先逛逛，不玩)</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Location List & Full Muscle Compendium Modal -->
+  <div id="list-modal" class="modal-backdrop" role="dialog" aria-labelledby="list-modal-title" hidden>
+    <div class="modal-card modal-lg">
+      <div class="panel-head">
+        <div>
+          <span class="badge-tag">Accessible Compendium · Works Without 3D</span>
+          <h2 id="list-modal-title">📋 All Islands, 157 Muscles, NPCs & Challenges</h2>
+        </div>
+        <button type="button" class="icon-close-btn" data-close-modal="list-modal" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-field">
+          <input id="modal-search-input" type="search" placeholder="Search by muscle name, origin, insertion, action, or nerve (e.g. Brachialis, Sciatic, CN VII)..." aria-label="Search muscles and islands" />
+        </div>
+        <div id="location-category-filters" class="group-filter-bar"></div>
+        <div id="location-list-container"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. RPG Quiz Battle Modal -->
+  <div id="quiz-modal" class="modal-backdrop" role="dialog" aria-labelledby="quiz-modal-title" hidden>
+    <div class="modal-card">
+      <div class="panel-head">
+        <div>
+          <span class="badge-tag">Concept Monster Quiz Battle</span>
+          <h2 id="quiz-modal-title">Monster Battle</h2>
+        </div>
+        <button type="button" class="icon-close-btn" data-close-modal="quiz-modal" aria-label="Close Quiz">✕</button>
+      </div>
+      <div id="quiz-modal-body" class="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- 4. Stamp Passport Modal -->
+  <div id="passport-modal" class="modal-backdrop" role="dialog" aria-labelledby="passport-modal-title" hidden>
+    <div class="modal-card">
+      <div class="panel-head">
+        <div>
+          <span class="badge-tag">Archipelago Progress</span>
+          <h2 id="passport-modal-title">🏅 Regional Island Stamp Passport (集章護照)</h2>
+        </div>
+        <button type="button" class="icon-close-btn" data-close-modal="passport-modal" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body">
+        <p id="passport-summary-text" style="margin-top:0;font-weight:700;"></p>
+        <div id="passport-stamps-grid" class="stamps-grid"></div>
+        <button type="button" id="btn-passport-final" class="btn-primary full-width">👑 Enter Central Island Final Challenge</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. Canvas Certificate Modal -->
+  <div id="certificate-modal" class="modal-backdrop" role="dialog" aria-labelledby="cert-modal-title" hidden>
+    <div class="modal-card modal-lg">
+      <div class="panel-head">
+        <div>
+          <span class="badge-tag">Completion Award</span>
+          <h2 id="cert-modal-title">🎓 Certificate of Musculoskeletal Anatomy Adventure</h2>
+        </div>
+        <button type="button" class="icon-close-btn" data-close-modal="certificate-modal" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body">
+        <label class="form-field">
+          <span>Name on Certificate (證書顯示名稱)</span>
+          <input id="cert-name-input" type="text" maxlength="28" placeholder="Enter your name or codename" />
+        </label>
+        <canvas id="certificate-canvas" width="960" height="600"></canvas>
+        <p class="muted-sm" style="text-align:right;margin:2px 0 0;">本證書為學習紀錄，非官方認證 (This certificate is a learning record, not an official certification.)</p>
+        <div class="npc-actions-bar">
+          <button type="button" id="btn-download-cert" class="btn-primary">⬇ Download PNG (下載 PNG)</button>
+          <button type="button" id="btn-print-cert" class="btn-secondary">🖨 Print Certificate (列印證書)</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. Backpack & Resident Trade Chain Modal -->
+  <div id="backpack-modal" class="modal-backdrop" role="dialog" aria-labelledby="bp-modal-title" hidden>
+    <div class="modal-card modal-lg">
+      <div class="panel-head">
+        <div>
+          <span class="badge-tag">Living World Collectibles (Pure Front-End Game · No Real Money)</span>
+          <h2 id="bp-modal-title">🎒 Adventurer Backpack & Scholar Trade Chain</h2>
+        </div>
+        <button type="button" class="icon-close-btn" data-close-modal="backpack-modal" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body">
+        <p style="margin-top:0;font-size:13.5px;">
+          Pick up <b>🐚 Calcium Shells</b> along the island shores (respawns in 20s) and trade with Island Scholars to synthesize rare anatomy relics! (First trade with each scholar grants <b>+2 EXP</b>.)
+        </p>
+        <div id="backpack-items-grid" class="bp-items-grid"></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <h3 style="margin:0;">Available Island Scholar Trades (交換鏈)</h3>
+          <button type="button" id="btn-empty-backpack" class="btn-secondary btn-sm">🗑 Empty Backpack (清空背包)</button>
+        </div>
+        <div id="backpack-trades-list"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. 24 Visitor Palettes Modal -->
+  <div id="palette-modal" class="modal-backdrop" role="dialog" aria-labelledby="pal-modal-title" hidden>
+    <div class="modal-card modal-lg">
+      <div class="panel-head">
+        <div>
+          <span class="badge-tag">12 Light + 12 Dark Custom Palettes</span>
+          <h2 id="pal-modal-title">🎨 Visitor Color Palette Deck (訪客 24 組配色面板)</h2>
+        </div>
+        <button type="button" class="icon-close-btn" data-close-modal="palette-modal" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
+          <p style="margin:0;font-size:13.5px;">Choose from 24 curated light and dark palettes. Your choice is saved automatically while island shapes and camera stay unchanged.</p>
+          <button type="button" id="btn-reset-palette" class="btn-secondary btn-sm">↺ Reset to Host Default (回到島主預設)</button>
+        </div>
+        <div id="palette-grid" class="palette-grid"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8. Save Code & Backup Modal -->
+  <div id="savecode-modal" class="modal-backdrop" role="dialog" aria-labelledby="save-modal-title" hidden>
+    <div class="modal-card">
+      <div class="panel-head">
+        <div>
+          <span class="badge-tag">Cross-Device Continuity</span>
+          <h2 id="save-modal-title">💾 Save Code & JSON Backup (接關碼與存檔)</h2>
+        </div>
+        <button type="button" class="icon-close-btn" data-close-modal="savecode-modal" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body">
+        <p style="margin-top:0;font-size:13px;color:var(--muted);">
+          Note: Save codes are designed for convenient device switching (not anti-cheat); clearing browser site data removes local saves. (接關碼僅供方便換裝置接著玩，並非防作弊機制；清除瀏覽器資料會刪掉本機存檔。)
+        </p>
+        <label class="form-field">
+          <span>Your Current Save Code (複製此代碼到新裝置)</span>
+          <input id="savecode-output" type="text" readonly />
+        </label>
+        <div class="npc-actions-bar" style="margin-bottom:14px;">
+          <button type="button" id="btn-copy-savecode" class="btn-primary btn-sm">📋 Copy Save Code (複製接關碼)</button>
+          <button type="button" id="btn-export-json" class="btn-secondary btn-sm">⬇ Export JSON</button>
+          <label class="btn-secondary btn-sm" style="cursor:pointer;">
+            ⬆ Import JSON
+            <input id="input-import-json" type="file" accept=".json,application/json" hidden />
+          </label>
+        </div>
+
+        <label class="form-field">
+          <span>Paste a Save Code to Restore (貼上接關碼還原進度)</span>
+          <input id="savecode-input" type="text" placeholder="Paste ANATOMYA1.xxxx... code here" />
+        </label>
+        <p id="savecode-status" class="status-msg" style="min-height:1.3em;margin:4px 0;"></p>
+        <div class="npc-actions-bar" style="justify-content:space-between;">
+          <button type="button" id="btn-restore-savecode" class="btn-primary btn-sm">🔄 Restore Save Code (還原接關碼)</button>
+          <button type="button" id="btn-reset-progress" class="btn-secondary btn-sm">⚠️ Reset Progress (重置進度)</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 9. Help & Guide Modal -->
+  <div id="help-modal" class="modal-backdrop" role="dialog" aria-labelledby="help-modal-title" hidden>
+    <div class="modal-card">
+      <div class="panel-head">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div class="wilson-avatar-slot"></div>
+          <div>
+            <span class="badge-tag">How to Play & Explore</span>
+            <h2 id="help-modal-title">Welcome to Ricky's anatomy learning island!</h2>
+          </div>
+        </div>
+        <button type="button" class="icon-close-btn" data-close-modal="help-modal" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body" style="font-size:13.5px;line-height:1.55;">
+        <ul class="points-list">
+          <li><b>3D Navigation:</b> Drag to orbit, scroll/pinch to zoom, click any island or label to walk your adventurer across the suspension bridges and open the 3D Muscle Compendium.</li>
+          <li><b>RPG Rules & EXP:</b> First island visit <b>+5 EXP</b>, first time answering a quiz question right <b>+10 EXP</b>, repeat correct answer <b>+2 EXP</b>, first island clear (2/3 correct) <b>+10 EXP + 1 Stamp</b>.</li>
+          <li><b>Central Citadel Final Boss:</b> Earn <b>4+ Regional Stamps</b> to unlock the 5-question Final Challenge on the Central Island (4/5 to pass & claim your downloadable/printable Certificate).</li>
+          <li><b>Living World & Fauna:</b> Click strolling Island Scholars, Couriers, 9 animal species (🐿️🐰🦆🦋🐧🐬🐱🐋🕊️), or the 🐢 Sea-Turtle Shuttle to chat & trade 🐚 Calcium Shells!</li>
+          <li><b>Illustrative Notes (示意標示):</b> All 157 muscles & quiz facts come directly from Ricky's Physiotherapy Anatomy Muscle Database CSV; original NPC/Monster names, 20 SVG diagrams for muscles without photos, and trade relics are marked <b>示意 (Illustrative)</b>.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script src="./guestbook.js"></script>
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>

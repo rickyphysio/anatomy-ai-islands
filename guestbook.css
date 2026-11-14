@@ -1,0 +1,26 @@
+.gb-open{position:fixed;right:16px;bottom:16px;z-index:45;min-height:44px;padding:0 18px;border:1px solid rgba(255,255,255,0.22);border-radius:22px;background:var(--primary,#3f7d3a);color:#fff;font:700 15px "Noto Sans TC",system-ui,sans-serif;cursor:pointer;box-shadow:0 6px 20px rgba(0,0,0,0.25);transition:transform .15s ease,background-color .3s ease}
+.gb-open:hover{transform:translateY(-2px)}
+.gb-panel{position:fixed;z-index:80;right:16px;bottom:16px;width:min(400px,calc(100vw - 32px));max-height:min(640px,calc(100dvh - 32px));overflow:auto;padding:18px;border-radius:18px;background:var(--surface,#fffdf7);color:var(--ink,#1d2b36);border:1px solid var(--line,#c5d6bd);box-shadow:0 16px 44px rgba(0,0,0,0.35);font:14px/1.5 "Noto Sans TC",system-ui,sans-serif}
+.gb-panel[hidden]{display:none !important}
+.gb-head{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.gb-head h2{margin:0;font-size:18px}
+.gb-close{min-width:44px;min-height:44px;border:0;border-radius:50%;background:rgba(128,128,128,0.15);color:inherit;font-size:18px;cursor:pointer}
+.gb-form{display:grid;gap:10px;margin-top:10px}
+.gb-form label{display:grid;gap:4px;font-weight:700;font-size:13px}
+.gb-form label[hidden]{display:none}
+.gb-form input,.gb-form select{min-height:44px;padding:0 12px;border:1px solid var(--line,#b8c2cc);border-radius:10px;font:inherit;background:var(--bg,#fff);color:var(--ink,#1d2b36)}
+.gb-form .gb-trap{position:absolute;left:-9999px;width:1px;height:1px;min-height:0;padding:0;opacity:0}
+.gb-note{margin:0;color:var(--muted,#5b6873);font-size:12px}
+.gb-send{min-height:44px;border:0;border-radius:10px;background:var(--primary,#3f7d3a);color:#fff;font:700 15px "Noto Sans TC",system-ui,sans-serif;cursor:pointer}
+.gb-send:disabled{opacity:.6}
+.gb-status{margin:0;min-height:1.4em;color:var(--primary,#1f7a5c);font-weight:700;font-size:13px}
+.gb-status.bad{color:#d93025}
+.gb-count{margin:12px 0 6px;font-weight:700;font-size:13px}
+.gb-list{display:grid;gap:8px}
+.gb-row{display:grid;gap:3px;padding:10px 12px;border-radius:10px;background:rgba(128,128,128,0.1);overflow-wrap:anywhere}
+.gb-row small{color:var(--muted,#5b6873);font-size:12px}
+.gb-empty{color:var(--muted,#5b6873);font-size:13px;margin:6px 0}
+@media (max-width:768px){
+  .gb-open{right:12px;bottom:12px;padding:0 14px;font-size:13px}
+  .gb-panel{right:8px;left:8px;bottom:8px;width:auto;max-height:82dvh}
+}

@@ -1,0 +1,650 @@
+{
+  "generator": {
+    "name": "造島工坊 IsleForge",
+    "version": 1,
+    "createdAt": "2026-11-13"
+  },
+  "site": {
+    "title": "Ricky's anatomy learning island",
+    "slug": "anatomy-ai-islands",
+    "tagline": "Enjoy learning anatomy with fun",
+    "author": "Ricky Tong",
+    "audience": "大專學生",
+    "language": "en",
+    "mascot": {
+      "name": "Wilson",
+      "description": "短髮、穿橙色背心及球鞋的Q版年輕老師"
+    }
+  },
+  "islandType": {
+    "id": "quest",
+    "name": "闖關冒險島",
+    "description": "登島和角色對話、答題打倒觀念怪獸、集章，最後領證書。"
+  },
+  "centerIsland": {
+    "name": "Ricky's anatomy learning island",
+    "role": "最終挑戰島",
+    "description": "最終挑戰島：所有關卡通過後解鎖，及格可領取證書。"
+  },
+  "extraLabel": "角色／觀念怪獸",
+  "islands": [
+    {
+      "order": 1,
+      "id": "island-01",
+      "name": "Head and Neck",
+      "group": "Axial & Cranio-C",
+      "intro": "Master 28 facial, mastication, and neck muscles & nerves.",
+      "points": [
+        "Grouping 1 - Superficial Facial Expression (CN VII Facial nerve): Orbicularis oculi (closes eyelids), Orbicularis oris (compresses/protrudes lips), Nasalis (opens/closes nostrils), Buccinator (builds cheek structure, controls food)",
+        "Grouping 2 - Deep Mastication (CN V Trigeminal nerve): Temporalis (elevates/retracts mandible), Masseter (elevates/protrudes mandible from zygomatic arch), Lateral pterygoid (protrudes/depresses mandible, contralateral deviation), Medial pterygoid (elevates/protrudes mandible, contralateral deviation)",
+        "Grouping 3 - Superficial, Suprahyoid & Infrahyoid Neck: Platysma (CN VII), Sternocleidomastoid (manubrium/clavicle to mastoid process, CN XI, contralateral rotation & ipsilateral lateral flexion), Digastric/Mylohyoid/Geniohyoid/Stylohyoid (elevate hyoid & depress mandible), Omohyoid/Sternothyroid/Thyrohyoid (depress/stabilize hyoid & larynx via Ansa cervicalis & C1)",
+        "Grouping 4 - Deep Prevertebral, Scalenes & Suboccipital: Longus capitis/Longus colli/Rectus capitis anterior & lateralis (head/neck flexion), Scalene anterior/medius/posterior (C2-C7 TP to 1st/2nd ribs, elevate ribs & ipsilateral neck flexion), Rectus capitis posterior major/minor & Obliquus capitis inferior/superior (C1-C2 to occiput, Suboccipital nerve, head extension & ipsilateral rotation)",
+        "RPG Quiz Directives: Generate English multiple-choice and dialogue battles testing exact Muscle Origin, Insertion, Muscle Action (unilateral vs bilateral), and Cranial/Spinal Nerve Innervation from Head and Neck CSV & 3D images"
+      ],
+      "extra": "Accurately identify the Origin, Insertion, Unilateral vs. Bilateral Action, and Cranial/Cervical Nerve Innervation of all 28 Head and Neck muscles through RPG monster quizzes.",
+      "link": "https://drive.google.com/file/d/1vAkC0afKl43UbQG7PWzyaAD0KyptikHl/view?usp=drivesdk",
+      "material": "materials/01_Head and Neck/Buccinator_3D.jpg",
+      "materials": [
+        "materials/01_Head and Neck/Buccinator_3D.jpg",
+        "materials/01_Head and Neck/Scalene_anterior_3D.jpg",
+        "materials/01_Head and Neck/Lateral_pterygoid_3D.jpg",
+        "materials/01_Head and Neck/Medial_pterygoid_3D.jpg",
+        "materials/01_Head and Neck/01_Head_and_Neck_Quiz_Guide.json",
+        "materials/01_Head and Neck/Temporalis_3D.jpg",
+        "materials/01_Head and Neck/Stylohyoid_3D.jpg",
+        "materials/01_Head and Neck/Rectus_capitis_posterior_major_3D.jpg",
+        "materials/01_Head and Neck/Geniohyoid_3D.jpg",
+        "materials/01_Head and Neck/Obliquus_capitis_superior_3D.jpg",
+        "materials/01_Head and Neck/Masseter_3D.jpg",
+        "materials/01_Head and Neck/Longus_capitis_3D.jpg",
+        "materials/01_Head and Neck/Sternocleidomastoid_3D.jpg",
+        "materials/01_Head and Neck/Head and Neck - 3D Muscle Atlas Reference.docx",
+        "materials/01_Head and Neck/Orbicularis_oris_3D.jpg",
+        "materials/01_Head and Neck/Platysma_3D.jpg",
+        "materials/01_Head and Neck/Thyrohyoid_3D.jpg",
+        "materials/01_Head and Neck/Sternothyroid_3D.jpg",
+        "materials/01_Head and Neck/Orbicularis_oculi_3D.jpg",
+        "materials/01_Head and Neck/Rectus_capitis_lateralis_3D.jpg",
+        "materials/01_Head and Neck/Obliquus_capitis_inferior_3D.jpg",
+        "materials/01_Head and Neck/Scalene_posterior_3D.jpg",
+        "materials/01_Head and Neck/Omohyoid_3D.jpg",
+        "materials/01_Head and Neck/Nasalis_3D.jpg",
+        "materials/01_Head and Neck/Physiotherapy Anatomy Muscle Database - Head and Neck.csv",
+        "materials/01_Head and Neck/Longus_colli_3D.jpg",
+        "materials/01_Head and Neck/Digastric_3D.jpg",
+        "materials/01_Head and Neck/Mylohyoid_3D.jpg"
+      ]
+    },
+    {
+      "order": 2,
+      "id": "island-02",
+      "name": "Shoulder",
+      "group": "Upper Extremity",
+      "intro": "Conquer 17 pectoral, rotator cuff, and scapular muscles.",
+      "points": [
+        "Grouping 1 - Pectoral Region: Pectoralis major (clavicular & sternocostal heads to lateral lip of bicipital groove, adducts/medially rotates/flexes humerus, Lateral & medial pectoral nerves), Pectoralis minor (ribs 3-5 to coracoid process, protracts/depresses scapula), Serratus anterior (ribs 1-9 to medial border of scapula, protracts/upwardly rotates scapula, Long thoracic nerve), Subclavius (1st rib to clavicle, Subclavian nerve)",
+        "Grouping 2 - Rotator Cuff (SITS): Supraspinatus (supraspinous fossa to greater tubercle, abducts humerus, Suprascapular nerve), Infraspinatus (infraspinous fossa to greater tubercle, lateral rotation, Suprascapular nerve), Teres minor (lateral border of scapula to greater tubercle, lateral rotation, Axillary nerve), Subscapularis (subscapular fossa to lesser tubercle, medial rotation, Upper & lower subscapular nerves)",
+        "Grouping 3 - Glenohumeral: Deltoid (clavicle/acromion/spine of scapula to deltoid tuberosity, flexion/abduction/extension of humerus, Axillary nerve), Teres major (inferior angle of scapula to medial lip of bicipital groove, adducts/extends/medially rotates humerus, Lower subscapular nerve)",
+        "Grouping 4 - Superficial Back & Shoulder Girdle: Trapezius Upper/Middle/Lower fibers (occiput/C7-T12 to clavicle/acromion/scapular spine, elevation/retraction/depression/upward rotation, CN XI Accessory nerve), Latissimus dorsi (T7-T12/iliac crest/ribs 9-12 to floor of bicipital groove, Thoracodorsal nerve), Rhomboid minor & major (C7-T5 to medial border of scapula, retraction & downward rotation, Dorsal scapular nerve), Levator scapulae (C1-C4 TP to superior angle of scapula, elevates/downwardly rotates scapula)",
+        "RPG Quiz Directives: Test players on distinguishing Rotator Cuff vs. Scapular Stabilizer origins, insertions (greater vs. lesser tubercle vs. intertubercular sulcus), actions, and brachial plexus nerves in English"
+      ],
+      "extra": "Differentiate the Origin, Insertion, Scapular vs. Glenohumeral Action, and Innervation of all 17 Shoulder and Rotator Cuff muscles in English quiz battles.",
+      "link": "https://drive.google.com/file/d/1JSaNnn_tUUOayvvlzDSRvz6rYJlwb-Hr/view?usp=drivesdk",
+      "material": "materials/02_Shoulder/Supraspinatus_3D.jpg",
+      "materials": [
+        "materials/02_Shoulder/Supraspinatus_3D.jpg",
+        "materials/02_Shoulder/Shoulder - 3D Muscle Atlas Reference.docx",
+        "materials/02_Shoulder/Subclavius_3D.jpg",
+        "materials/02_Shoulder/Pectoralis_major_3D.jpg",
+        "materials/02_Shoulder/Pectoralis_minor_3D.jpg",
+        "materials/02_Shoulder/Trapezius_3D.jpg",
+        "materials/02_Shoulder/Infraspinatus_3D.jpg",
+        "materials/02_Shoulder/Deltoid_3D.jpg",
+        "materials/02_Shoulder/02_Shoulder_Quiz_Guide.json",
+        "materials/02_Shoulder/Latissimus_dorsi_3D.jpg",
+        "materials/02_Shoulder/Physiotherapy Anatomy Muscle Database - Shoulder.csv",
+        "materials/02_Shoulder/Rhomboid_minor_3D.jpg",
+        "materials/02_Shoulder/Teres_minor_3D.jpg",
+        "materials/02_Shoulder/Serratus_anterior_3D.jpg",
+        "materials/02_Shoulder/Subscapularis_3D.jpg",
+        "materials/02_Shoulder/Teres_major_3D.jpg",
+        "materials/02_Shoulder/Levator_scapulae_3D.jpg",
+        "materials/02_Shoulder/Rhomboid_major_3D.jpg"
+      ]
+    },
+    {
+      "order": 3,
+      "id": "island-03",
+      "name": "Elbow",
+      "group": "Upper Extremity",
+      "intro": "Explore 9 arm and forearm flexors, extensors & rotators.",
+      "points": [
+        "Grouping 1 - Anterior Arm (Musculocutaneous nerve): Coracobrachialis (coracoid process to middle 1/3 medial humerus, flexes/adducts humerus), Biceps brachii (short head: coracoid apex",
+        "long head: supraglenoid tubercle to radial tuberosity, flexes & supinates forearm), Brachialis (distal 1/2 anterior humerus to ulnar coronoid process/tuberosity, flexes elbow in all positions)",
+        "Grouping 2 - Posterior Arm & Elbow (Radial nerve): Triceps brachii (long head: infraglenoid tubercle",
+        "lateral & medial heads: posterior humerus to olecranon of ulna, extends elbow & long head extends/adducts humerus), Anconeus (lateral epicondyle to olecranon, extends elbow), Brachioradialis (lateral supracondylar ridge to distal radius, flexes elbow)",
+        "Grouping 3 - Radioulnar Pronators (Median / Anterior interosseous nerve): Pronator teres (medial epicondyle & ulnar coronoid process to middle 1/3 lateral radius, pronates & flexes forearm), Pronator quadratus (distal 1/4 anterior ulna to distal 1/4 anterior radius, pronates forearm)",
+        "Grouping 4 - Radioulnar Supinator: Supinator (lateral epicondyle, radial collateral/annular ligaments & supinator crest of ulna to proximal 1/3 radius, supinates forearm, Posterior interosseous nerve)",
+        "RPG Quiz Directives: Create English quiz questions comparing elbow flexors across forearm positions, two-joint vs. one-joint muscles, and Musculocutaneous vs. Radial vs. Median nerve supply"
+      ],
+      "extra": "Master the exact Origin, Insertion, Elbow/Radioulnar Action, and Innervation of all 9 Elbow and Forearm rotation muscles through interactive challenges.",
+      "link": "https://drive.google.com/file/d/1MbgOS3IoYvvsnLu6-dxG9lNOqaLXu72v/view?usp=drivesdk",
+      "material": "materials/03_Elbow/Anconeus_3D.jpg",
+      "materials": [
+        "materials/03_Elbow/Anconeus_3D.jpg",
+        "materials/03_Elbow/Coracobrachialis_3D.jpg",
+        "materials/03_Elbow/Pronator_teres_3D.jpg",
+        "materials/03_Elbow/Elbow - 3D Muscle Atlas Reference.docx",
+        "materials/03_Elbow/Brachialis_3D.jpg",
+        "materials/03_Elbow/03_Elbow_Quiz_Guide.json",
+        "materials/03_Elbow/Physiotherapy Anatomy Muscle Database - Elbow.csv",
+        "materials/03_Elbow/Biceps_brachii_3D.jpg",
+        "materials/03_Elbow/Pronator_quadratus_3D.jpg",
+        "materials/03_Elbow/Triceps_brachii_3D.jpg",
+        "materials/03_Elbow/Supinator_3D.jpg",
+        "materials/03_Elbow/Brachioradialis_3D.jpg"
+      ]
+    },
+    {
+      "order": 4,
+      "id": "island-04",
+      "name": "Wrist and Hands",
+      "group": "Upper Extremity",
+      "intro": "Test 27 forearm and intrinsic hand muscles & nerve supply.",
+      "points": [
+        "Grouping 1 - Anterior Forearm Flexors: Flexor carpi radialis, Palmaris longus, Flexor digitorum superficialis (Median nerve), Flexor carpi ulnaris (Ulnar nerve), Flexor digitorum profundus (Medial 1/2 Ulnar nerve",
+        "Lateral 1/2 Anterior interosseous nerve to distal phalanges #2-5), Flexor pollicis longus (Anterior interosseous nerve to thumb distal phalanx)",
+        "Grouping 2 - Posterior Forearm Extensors (Radial / Posterior interosseous nerve): Extensor carpi radialis longus & brevis, Extensor carpi ulnaris, Extensor digitorum, Extensor digiti minimi, Abductor pollicis longus, Extensor pollicis longus & brevis, Extensor indicis",
+        "Grouping 3 - Intrinsic Hand Thenar & Hypothenar: Abductor pollicis brevis, Flexor pollicis brevis, Opponens pollicis (Recurrent branch of median nerve), Abductor digiti minimi, Flexor digiti minimi brevis, Opponens digiti minimi (Deep branch of ulnar nerve)",
+        "Grouping 4 - Intrinsic Short Palmar & Dorsal: Lumbricals #1+2 (Median nerve) & #3+4 (Deep ulnar nerve, flex MCP & extend IP joints from FDP tendons), Palmar interossei #1-3 (adduct fingers PAD, Deep ulnar nerve), Dorsal interossei #1-4 (abduct fingers DAB, Deep ulnar nerve), Adductor pollicis (Deep ulnar nerve), Palmaris brevis (Superficial ulnar nerve)",
+        "RPG Quiz Directives: Quiz players in English on common flexor/extensor tendon origins, PIP vs. DIP insertions (FDS vs. FDP), anatomical snuffbox tendons, and Median vs. Ulnar vs. Radial nerve territories"
+      ],
+      "extra": "Identify the Origin, Insertion, Digit/Wrist Action, and Median, Ulnar, or Radial Nerve Innervation for all 27 Wrist and Hand muscles.",
+      "link": "https://drive.google.com/file/d/1I3ZfCHiEZttsh0ZFIcpHzkMVkBoHsf92/view?usp=drivesdk",
+      "material": "materials/04_Wrist and Hands/Palmaris_brevis_3D.jpg",
+      "materials": [
+        "materials/04_Wrist and Hands/Palmaris_brevis_3D.jpg",
+        "materials/04_Wrist and Hands/Extensor_pollicis_brevis_3D.jpg",
+        "materials/04_Wrist and Hands/Flexor_carpi_radialis_3D.jpg",
+        "materials/04_Wrist and Hands/Abductor_pollicis_longus_3D.jpg",
+        "materials/04_Wrist and Hands/Extensor_digitorum_3D.jpg",
+        "materials/04_Wrist and Hands/Extensor_carpi_ulnaris_3D.jpg",
+        "materials/04_Wrist and Hands/Extensor_carpi_radialis_brevis_3D.jpg",
+        "materials/04_Wrist and Hands/04_Wrist_and_Hands_Quiz_Guide.json",
+        "materials/04_Wrist and Hands/Flexor_pollicis_brevis_3D.jpg",
+        "materials/04_Wrist and Hands/Adductor_pollicis_3D.jpg",
+        "materials/04_Wrist and Hands/Wrist and Hands - 3D Muscle Atlas Reference.docx",
+        "materials/04_Wrist and Hands/Abductor_digiti_minimi_hand_3D.jpg",
+        "materials/04_Wrist and Hands/Extensor_digiti_minimi_3D.jpg",
+        "materials/04_Wrist and Hands/Opponens_pollicis_3D.jpg",
+        "materials/04_Wrist and Hands/Flexor_carpi_ulnaris_3D.jpg",
+        "materials/04_Wrist and Hands/Extensor_indicis_3D.jpg",
+        "materials/04_Wrist and Hands/Extensor_carpi_radialis_longus_3D.jpg",
+        "materials/04_Wrist and Hands/Flexor_pollicis_longus_3D.jpg",
+        "materials/04_Wrist and Hands/Opponens_digiti_minimi_3D.jpg",
+        "materials/04_Wrist and Hands/Extensor_pollicis_longus_3D.jpg",
+        "materials/04_Wrist and Hands/Flexor_digiti_minimi_brevis_hand_3D.jpg",
+        "materials/04_Wrist and Hands/Physiotherapy Anatomy Muscle Database - Wrist and Hands.csv",
+        "materials/04_Wrist and Hands/Palmaris_longus_3D.jpg",
+        "materials/04_Wrist and Hands/Flexor_digitorum_profundus_3D.jpg",
+        "materials/04_Wrist and Hands/Flexor_digitorum_superficialis_3D.jpg",
+        "materials/04_Wrist and Hands/Lumbricals_hand_3D.jpg",
+        "materials/04_Wrist and Hands/Palmar_interossei_3D.jpg",
+        "materials/04_Wrist and Hands/Dorsal_interossei_hand_3D.jpg",
+        "materials/04_Wrist and Hands/Abductor_pollicis_brevis_3D.jpg"
+      ]
+    },
+    {
+      "order": 5,
+      "id": "island-05",
+      "name": "Trunk",
+      "group": "Axial & Core",
+      "intro": "Challenge 26 back, abdominal, respiratory & pelvic muscles.",
+      "points": [
+        "Grouping 1 - Extrinsic & Intrinsic Back: Serratus posterior superior (elevates ribs 2-5) & inferior (depresses ribs 9-12), Splenius capitis & cervicis, Erector spinae (Iliocostalis, Longissimus, Spinalis), Semispinalis, Multifidus, Interspinales, Intertransversarii, Rotatores, Levatores costarum (Posterior rami of spinal nerves, spinal extension, stabilization, ipsilateral lateral flexion & contralateral/ipsilateral rotation)",
+        "Grouping 2 - Anterior & Posterior Abdominal Wall: External obliques (ribs 5-12 to linea alba/iliac crest, contralateral rotation), Internal obliques (ipsilateral rotation), Rectus abdominis (pubis to xiphoid/ribs 5-7, trunk flexion), Transversus abdominis (intra-abdominal pressure), Quadratus lumborum (iliac crest to 12th rib/L1-L4 TP, ipsilateral lateral flexion & hip hiking), Psoas minor",
+        "Grouping 3 - Thoracic Respiratory: Diaphragm (xiphoid, lower 6 ribs & lumbar vertebrae to central tendon, primary inspiration, Phrenic nerve)",
+        "Grouping 4 - Pelvic Floor & Perineum: Levator ani (Puborectalis, Pubococcygeus, Iliococcygeus) & Coccygeus (pelvic floor elevation & visceral support), External anal sphincter, Superficial & Deep transverse perinei, Ischiocavernosus, Bulbospongiosus (Perineal & inferior rectal nerves)",
+        "RPG Quiz Directives: Test players in English on ipsilateral vs. contralateral trunk rotators, deep spinal stabilizers, Diaphragm attachments, and Pelvic Floor actions"
+      ],
+      "extra": "Master the Origin, Insertion, Unilateral vs. Bilateral Action, and Innervation of all 26 Back, Abdominal, Respiratory, and Pelvic Floor muscles.",
+      "link": "https://drive.google.com/file/d/1mWOuLTZQSo-1toyAILJOmnOk6kEaojXG/view?usp=drivesdk",
+      "material": "materials/05_Trunk/Multifidus_3D.jpg",
+      "materials": [
+        "materials/05_Trunk/Multifidus_3D.jpg",
+        "materials/05_Trunk/Trunk - 3D Muscle Atlas Reference.docx",
+        "materials/05_Trunk/Physiotherapy Anatomy Muscle Database - Trunk.csv",
+        "materials/05_Trunk/Transversus_abdominis_3D.jpg",
+        "materials/05_Trunk/External_anal_sphincter_3D.jpg",
+        "materials/05_Trunk/Serratus_posterior_superior_3D.jpg",
+        "materials/05_Trunk/External_obliques_3D.jpg",
+        "materials/05_Trunk/Rectus_abdominis_3D.jpg",
+        "materials/05_Trunk/Splenius_3D.jpg",
+        "materials/05_Trunk/Serratus_posterior_inferior_3D.jpg",
+        "materials/05_Trunk/Quadratus_lumborum_3D.jpg",
+        "materials/05_Trunk/Puborectalis_3D.jpg",
+        "materials/05_Trunk/05_Trunk_Quiz_Guide.json",
+        "materials/05_Trunk/Internal_obliques_3D.jpg",
+        "materials/05_Trunk/Semispinalis_3D.jpg",
+        "materials/05_Trunk/Rotatores_3D.jpg",
+        "materials/05_Trunk/Pubococcygeus_3D.jpg",
+        "materials/05_Trunk/Erector_spinae_3D.jpg"
+      ]
+    },
+    {
+      "order": 6,
+      "id": "island-06",
+      "name": "Hip",
+      "group": "Lower Extremity",
+      "intro": "Master 17 gluteal, iliopsoas, rotator & adductor muscles.",
+      "points": [
+        "Grouping 1 - Anterior Hip / Iliopsoas: Iliacus (iliac fossa/sacral ala to lesser trochanter, Femoral nerve) & Psoas major (T12-L5 to lesser trochanter, Lumbar anterior rami, hip flexion & external rotation)",
+        "Grouping 2 - Gluteal Region: Gluteus maximus (posterior ilium/sacrum to IT tract & gluteal tuberosity, hip extension & lateral rotation, Inferior gluteal nerve), Gluteus medius & Gluteus minimus (ilium to greater trochanter, hip abduction & medial rotation, keeps pelvis level, Superior gluteal nerve), Tensor fasciae latae (ASIS/iliac crest to IT tract, Superior gluteal nerve)",
+        "Grouping 3 - Deep External Rotators: Piriformis, Obturator internus, Superior gemellus, Inferior gemellus, Quadratus femoris (sacrum/ischium/obturator margin to greater trochanter/quadrate tubercle, lateral rotation when extended & abduction when flexed)",
+        "Grouping 4 - Medial Thigh Adductors: Pectineus (Femoral/Obturator nerve), Adductor longus, Adductor brevis, Gracilis (pes anserinus), Obturator externus (Obturator nerve), Adductor magnus (Adductor part: ischiopubic ramus to linea aspera, Obturator nerve",
+        "Hamstring part: ischial tuberosity to adductor tubercle, Tibial nerve)",
+        "RPG Quiz Directives: Generate English battle questions on Superior vs. Inferior gluteal nerve, dual innervation of Adductor magnus, and deep external rotator attachments"
+      ],
+      "extra": "Accurately recall the Origin, Insertion, Pelvic/Femoral Action, and Nerve Supply for all 17 Hip and Medial Thigh muscles.",
+      "link": "https://drive.google.com/file/d/1qEtQgMM0fxWHaou7xzb7E-9P7DlwdlQX/view?usp=drivesdk",
+      "material": "materials/06_Hip/Piriformis_3D.jpg",
+      "materials": [
+        "materials/06_Hip/Piriformis_3D.jpg",
+        "materials/06_Hip/Superior_gemellus_3D.jpg",
+        "materials/06_Hip/Hip - 3D Muscle Atlas Reference.docx",
+        "materials/06_Hip/Iliacus_3D.jpg",
+        "materials/06_Hip/Inferior_gemellus_3D.jpg",
+        "materials/06_Hip/06_Hip_Quiz_Guide.json",
+        "materials/06_Hip/Adductor_brevis_3D.jpg",
+        "materials/06_Hip/Gluteus_maximus_3D.jpg",
+        "materials/06_Hip/Gluteus_medius_3D.jpg",
+        "materials/06_Hip/Gracilis_3D.jpg",
+        "materials/06_Hip/Quadratus_femoris_3D.jpg",
+        "materials/06_Hip/Tensor_fasciae_latae_3D.jpg",
+        "materials/06_Hip/Adductor_magnus_3D.jpg",
+        "materials/06_Hip/Psoas_major_3D.jpg",
+        "materials/06_Hip/Physiotherapy Anatomy Muscle Database - Hip.csv",
+        "materials/06_Hip/Obturator_internus_3D.jpg",
+        "materials/06_Hip/Obturator_externus_3D.jpg",
+        "materials/06_Hip/Gluteus_minimus_3D.jpg",
+        "materials/06_Hip/Adductor_longus_3D.jpg",
+        "materials/06_Hip/Pectineus_3D.jpg"
+      ]
+    },
+    {
+      "order": 7,
+      "id": "island-07",
+      "name": "Knee",
+      "group": "Lower Extremity",
+      "intro": "Conquer 9 quadriceps, hamstring, and popliteal muscles.",
+      "points": [
+        "Grouping 1 - Anterior Thigh Quadriceps & Sartorius (Femoral nerve): Rectus femoris (AIIS & superior acetabulum to tibial tuberosity via patellar tendon, flexes hip & extends knee), Vastus medialis (intertrochanteric line/medial linea aspera), Vastus intermedius (anterior/lateral femur), Vastus lateralis (greater trochanter/lateral linea aspera, all extend knee), Sartorius (ASIS to pes anserinus on medial proximal tibia, flexes/abducts/laterally rotates hip & flexes/medially rotates knee)",
+        "Grouping 2 - Posterior Thigh Hamstrings: Semitendinosus (ischial tuberosity to pes anserinus, extends hip, flexes & medially rotates knee, Tibial division of sciatic nerve), Semimembranosus (ischial tuberosity to medial tibial condyle, extends hip, flexes & medially rotates knee, Tibial division), Biceps femoris (Long head: ischial tuberosity, Tibial division",
+        "Short head: lateral linea aspera, Common fibular division",
+        "inserts on fibular head, flexes & laterally rotates knee)",
+        "Grouping 3 - Posterior Knee: Popliteus (lateral femoral condyle to posterior tibia above soleal line, unlocks knee via lateral rotation of femur on fixed tibia, Tibial nerve)",
+        "RPG Quiz Directives: Test players in English on Pes Anserinus insertions (Sartorius, Gracilis, Semitendinosus), biarticular vs. monoarticular quadriceps/hamstrings, and Popliteus knee-unlocking mechanics"
+      ],
+      "extra": "Master the Origin, Insertion, Biarticular Action, and Sciatic/Femoral/Tibial Innervation of all 9 Knee and Thigh muscles.",
+      "link": "https://drive.google.com/file/d/1J20ImGf1wSRm7Dg5DLNPNrYFofJbyQXW/view?usp=drivesdk",
+      "material": "materials/07_Knee/Sartorius_3D.jpg",
+      "materials": [
+        "materials/07_Knee/Sartorius_3D.jpg",
+        "materials/07_Knee/Semimembranosus_3D.jpg",
+        "materials/07_Knee/07_Knee_Quiz_Guide.json",
+        "materials/07_Knee/Vastus_intermedius_3D.jpg",
+        "materials/07_Knee/Knee - 3D Muscle Atlas Reference.docx",
+        "materials/07_Knee/Semitendinosus_3D.jpg",
+        "materials/07_Knee/Physiotherapy Anatomy Muscle Database - Knee.csv",
+        "materials/07_Knee/Rectus_femoris_3D.jpg",
+        "materials/07_Knee/Popliteus_3D.jpg",
+        "materials/07_Knee/Vastus_medialis_3D.jpg",
+        "materials/07_Knee/Biceps_femoris_3D.jpg"
+      ]
+    },
+    {
+      "order": 8,
+      "id": "island-08",
+      "name": "Ankle and Foot",
+      "group": "Lower Extremity",
+      "intro": "Explore 24 crural compartments and intrinsic foot muscles.",
+      "points": [
+        "Grouping 1 - Anterior & Lateral Leg: Tibialis anterior (dorsiflexion & inversion), Extensor hallucis longus, Extensor digitorum longus, Fibularis tertius (dorsiflexion & eversion, all Deep fibular nerve), Fibularis longus & Fibularis brevis (plantarflexion & eversion, Superficial fibular nerve)",
+        "Grouping 2 - Superficial & Deep Posterior Leg (Tibial nerve): Gastrocnemius, Soleus, Plantaris (insert on calcaneus via calcaneal tendon, plantarflexion), Tibialis posterior (plantarflexion & inversion, arch support), Flexor digitorum longus, Flexor hallucis longus",
+        "Grouping 3 - Dorsal Foot (Deep fibular nerve): Extensor digitorum brevis, Extensor hallucis brevis",
+        "Grouping 4 - Intrinsic Sole of Foot (Layers 1-4): Layer 1 - Abductor hallucis & Flexor digitorum brevis (Medial plantar nerve), Abductor digiti minimi (Lateral plantar nerve), Layer 2 - Quadratus plantae (Lateral plantar nerve) & Lumbricals #1-4 (#1 Medial plantar, #2-4 Lateral plantar), Layer 3 - Flexor hallucis brevis (Medial plantar), Adductor hallucis & Flexor digiti minimi brevis (Lateral plantar), Layer 4 - Plantar interossei #1-3 (adduct digits 3-5) & Dorsal interossei #1-4 (abduct digits 2-4, Lateral plantar nerve)",
+        "RPG Quiz Directives: Challenge players in English on ankle dorsiflexors vs. plantarflexors, invertors vs. evertors, plantar foot layers 1-4, and Medial vs. Lateral plantar nerve supply"
+      ],
+      "extra": "Differentiate the Origin, Insertion, Compartment/Layer Action, and Fibular/Tibial/Plantar Innervation of all 24 Ankle and Foot muscles.",
+      "link": "https://drive.google.com/file/d/1ewB-5onzcDa0Fhbo_IF7Fxjm-kEb44HB/view?usp=drivesdk",
+      "material": "materials/08_Ankle and Foot/Tibialis_anterior_3D.jpg",
+      "materials": [
+        "materials/08_Ankle and Foot/Tibialis_anterior_3D.jpg",
+        "materials/08_Ankle and Foot/Flexor_hallucis_brevis_3D.jpg",
+        "materials/08_Ankle and Foot/Extensor_digitorum_longus_3D.jpg",
+        "materials/08_Ankle and Foot/Tibialis_posterior_3D.jpg",
+        "materials/08_Ankle and Foot/08_Ankle_and_Foot_Quiz_Guide.json",
+        "materials/08_Ankle and Foot/Gastrocnemius_3D.jpg",
+        "materials/08_Ankle and Foot/Flexor_digitorum_longus_3D.jpg",
+        "materials/08_Ankle and Foot/Fibularis_longus_3D.jpg",
+        "materials/08_Ankle and Foot/Extensor_hallucis_brevis_3D.jpg",
+        "materials/08_Ankle and Foot/Abductor_hallucis_3D.jpg",
+        "materials/08_Ankle and Foot/Physiotherapy Anatomy Muscle Database - Ankle and Foot.csv",
+        "materials/08_Ankle and Foot/Plantar_interossei_3D.jpg",
+        "materials/08_Ankle and Foot/Plantaris_3D.jpg",
+        "materials/08_Ankle and Foot/Fibularis_tertius_3D.jpg",
+        "materials/08_Ankle and Foot/Lumbricals_foot_3D.jpg",
+        "materials/08_Ankle and Foot/Extensor_hallucis_longus_3D.jpg",
+        "materials/08_Ankle and Foot/Dorsal_interossei_foot_3D.jpg",
+        "materials/08_Ankle and Foot/Fibularis_brevis_3D.jpg",
+        "materials/08_Ankle and Foot/Soleus_3D.jpg",
+        "materials/08_Ankle and Foot/Extensor_digitorum_brevis_3D.jpg",
+        "materials/08_Ankle and Foot/Ankle and Foot - 3D Muscle Atlas Reference.docx",
+        "materials/08_Ankle and Foot/Flexor_hallucis_longus_3D.jpg"
+      ]
+    }
+  ],
+  "theme": {
+    "style": "卡通童趣",
+    "font": "黑體",
+    "primary": "#3f7d3a",
+    "accent": "#e3a33b",
+    "backgrounds": [
+      {
+        "name": "森林",
+        "background": "#eef3e6",
+        "default": true
+      },
+      {
+        "name": "苔原",
+        "background": "#dfe8d3",
+        "default": false
+      },
+      {
+        "name": "深林",
+        "background": "#1b2a20",
+        "default": false
+      }
+    ],
+    "autoByTime": {
+      "enabled": true,
+      "day": "森林",
+      "dusk": "苔原",
+      "night": "深林",
+      "spec": "references/theme.md"
+    }
+  },
+  "features": [
+    {
+      "id": "list",
+      "name": "地點清單",
+      "description": "不用 3D 也能讀完所有內容"
+    },
+    {
+      "id": "progress",
+      "name": "探索進度",
+      "description": "記錄看過哪些島（存在瀏覽器）"
+    },
+    {
+      "id": "quiz",
+      "name": "小測驗",
+      "description": "每座島或中央島的測驗題"
+    },
+    {
+      "id": "certificate",
+      "name": "完成證書",
+      "description": "全部完成後可下載或列印"
+    },
+    {
+      "id": "music",
+      "name": "背景音樂",
+      "description": "使用者按下才播放，可關閉"
+    },
+    {
+      "id": "reducedMotion",
+      "name": "減少動態",
+      "description": "暫停動畫，保護容易暈眩的人"
+    },
+    {
+      "id": "guidedTour",
+      "name": "自動導覽路線",
+      "description": "按「開始導覽」鏡頭依序飛到每座島並跳出介紹卡，可暫停、上一站、下一站"
+    },
+    {
+      "id": "walkMode",
+      "name": "地面漫遊",
+      "description": "切到第一人稱走在島上與橋上，WASD／方向鍵或畫面方向鍵移動，拖曳環顧"
+    },
+    {
+      "id": "saveCode",
+      "name": "接關碼",
+      "description": "換電腦或手機時，用一串代碼接著玩"
+    },
+    {
+      "id": "people",
+      "name": "小人物散步",
+      "description": "島上有小人物沿著道路走動，增加生活感"
+    },
+    {
+      "id": "npcTalk",
+      "name": "居民對話與交易",
+      "description": "點居民會停下來揮手聊天，可以用撿到的東西跟居民交換"
+    },
+    {
+      "id": "skyLife",
+      "name": "天空與海的動態",
+      "description": "雲朵飄移、鳥群飛過、帆船繞島、海浪起伏"
+    },
+    {
+      "id": "dayNight",
+      "name": "晝夜切換",
+      "description": "白天、黃昏、夜晚光線"
+    },
+    {
+      "id": "nightLights",
+      "name": "夜晚燈光",
+      "description": "天黑後路燈、窗戶、市集燈亮起，還有螢火蟲"
+    },
+    {
+      "id": "clock",
+      "name": "即時時鐘",
+      "description": "顯示目前時間與天色"
+    },
+    {
+      "id": "search",
+      "name": "搜尋",
+      "description": "用關鍵字找島嶼與內容"
+    },
+    {
+      "id": "dailyKey",
+      "name": "每日鑰匙",
+      "description": "每天可開寶箱的次數"
+    },
+    {
+      "id": "meteorShower",
+      "name": "流星雨",
+      "description": "夜晚不定時劃過流星，偶爾來一陣流星雨，可以按「🌠 許願」叫出一陣"
+    },
+    {
+      "id": "guestbook",
+      "name": "訪客留名",
+      "description": "訪客可以在島上留下暱稱和一句話，大家都看得到；留名存在你的 Google 試算表"
+    },
+    {
+      "id": "paletteDeck",
+      "name": "訪客配色面板",
+      "description": "訪客可以從 24 組亮暗配色裡選自己喜歡的，選擇會記住；島的形狀不變"
+    },
+    {
+      "id": "seaGuide",
+      "name": "海龜接駁嚮導",
+      "description": "一隻大海龜沿著群島游動，背上載著小人物，靠岸時會把人接到下一座島"
+    }
+  ],
+  "rpgMode": {
+    "enabled": true,
+    "spec": "references/rpg-mode.md",
+    "npcRole": "關卡守門人",
+    "challenge": "原本的觀念怪獸三題；RPG 模式再加上角色走動與等級",
+    "rules": {
+      "firstVisit": 5,
+      "firstCorrect": 10,
+      "repeatCorrect": 2,
+      "firstClear": 10,
+      "passPerIsland": "2/3",
+      "centerUnlockStamps": 4
+    }
+  },
+  "livingWorld": {
+    "enabled": true,
+    "spec": "references/living-world.md",
+    "residentsPerIsland": 2,
+    "trade": true,
+    "dayNight": [
+      "day",
+      "dusk",
+      "night",
+      "auto",
+      "realtime"
+    ],
+    "sky": [
+      "clouds",
+      "birds",
+      "boats"
+    ],
+    "nightLights": true
+  },
+  "look": {
+    "spec": "references/look-and-feel.md",
+    "shape": {
+      "id": "float",
+      "name": "浮空群島"
+    },
+    "detail": {
+      "level": 4,
+      "name": "極致",
+      "requirement": "在精緻之上：每島至少 1 個會動的小機關（風車、水車、旗子、噴泉）、地面有色塊拼貼與陰影細節、島底岩層分層；需提供「低畫質」切換並在手機自動降級"
+    },
+    "animals": [
+      {
+        "id": "squirrel",
+        "icon": "🐿️",
+        "name": "松鼠",
+        "where": "land"
+      },
+      {
+        "id": "rabbit",
+        "icon": "🐰",
+        "name": "兔子",
+        "where": "land"
+      },
+      {
+        "id": "duck",
+        "icon": "🦆",
+        "name": "鴨子",
+        "where": "shore"
+      },
+      {
+        "id": "butterfly",
+        "icon": "🦋",
+        "name": "蝴蝶",
+        "where": "air"
+      },
+      {
+        "id": "penguin",
+        "icon": "🐧",
+        "name": "企鵝",
+        "where": "shore"
+      },
+      {
+        "id": "dolphin",
+        "icon": "🐬",
+        "name": "海豚",
+        "where": "sea"
+      },
+      {
+        "id": "cat",
+        "icon": "🐱",
+        "name": "貓咪",
+        "where": "land"
+      },
+      {
+        "id": "whale",
+        "icon": "🐋",
+        "name": "鯨魚",
+        "where": "sea"
+      },
+      {
+        "id": "seagull",
+        "icon": "🕊️",
+        "name": "海鷗",
+        "where": "air"
+      }
+    ],
+    "extras": [
+      {
+        "id": "flowers",
+        "name": "花田"
+      },
+      {
+        "id": "windmill",
+        "name": "風車"
+      },
+      {
+        "id": "fountain",
+        "name": "噴泉廣場"
+      },
+      {
+        "id": "waterfall",
+        "name": "瀑布"
+      },
+      {
+        "id": "bunting",
+        "name": "彩旗串"
+      }
+    ],
+    "cinema": {
+      "id": "epic",
+      "name": "電影史詩",
+      "requirement": "開場 4～6 秒：從遠方高空穿過雲層、環繞群島半圈、俯衝拉近再拉遠成全景（可加輕微景深模糊與標題淡入）；點島時鏡頭先拉高、沿弧線繞到島的正面再推近（1.5～2.5 秒）；任何時候點畫面或按 Esc 可以跳過"
+    }
+  },
+  "guestbook": {
+    "enabled": true,
+    "spec": "references/guestbook.md",
+    "style": "lantern",
+    "styleName": "許願燈籠",
+    "review": true,
+    "message": true,
+    "backend": "gas",
+    "gasUrl": "https://script.google.com/macros/s/AKfycbxjJkWK-umi9Kv_TLAYx7MEjBOZ1t8MnlpAFh8XXNFZXJ3P_MPh7UFqDl9vmQOC8Ott/exec"
+  },
+  "visitCounter": {
+    "enabled": false
+  },
+  "exploreLive": {
+    "enabled": true,
+    "spec": "references/explore-and-live.md",
+    "features": [
+      "guidedTour",
+      "walkMode",
+      "meteorShower",
+      "paletteDeck",
+      "seaGuide"
+    ],
+    "liveData": []
+  },
+  "release": {
+    "version": 1,
+    "basedOn": null,
+    "updatedAt": "2026-11-13",
+    "history": [
+      {
+        "version": 1,
+        "date": "2026-11-13",
+        "summary": "第一版"
+      }
+    ]
+  },
+  "publishMaterials": false
+}
